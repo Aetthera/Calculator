@@ -49,8 +49,10 @@ struct KeyView: View {
                         Button(action: {print("\(element.rawValue) Tapped.")}, label: {
                             Text(element.rawValue)
                                 .font(.system(size: 30))
+                                .foregroundStyle(.black)
                                 .frame(width: 80, height: 60)
                                 .background(element.buttonColor)
+                                .clipShape(RoundedRectangle(cornerRadius: 30))
                         })
                     }
                 }
