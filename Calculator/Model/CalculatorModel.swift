@@ -8,7 +8,7 @@
 import Foundation
 import SwiftUI // for colors
 
-enum Key: String {
+enum Keys: String {
     
     //numbers
     case one = "1"
@@ -25,7 +25,7 @@ enum Key: String {
     //operations
     case add = "+"
     case substract = "-"
-    case muliply = "*"
+    case multiply = "*"
     case divide = "÷"
     case equal = "="
     case clear = "AC"
@@ -36,7 +36,7 @@ enum Key: String {
     //button color
     var buttonColor: Color{
         switch self {
-        case .add, .substract, .muliply, .divide, .equal:
+        case .add, .substract, .multiply, .divide, .equal:
             return Color.voperator
         case .clear, .negative, .percent:
             return Color.hoperator

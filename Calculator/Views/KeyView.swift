@@ -13,6 +13,15 @@ struct KeyView: View {
     @State var runningNumber = 0
     @State var currentOperation: Operation = .none
     @State private var changeColor = false
+    
+    let buttons: [[Keys]] = [
+        [.clear, .negative, .percent, .divide],
+        [.seven, .eight, .nine, .multiply],
+        [.four, .five, .six, .substract],
+        [.one, .two, .three, .add],
+        [.zero, .decimal, .equal]
+    ]
+    
     var body: some View {
         VStack{
             Spacer()
@@ -30,6 +39,22 @@ struct KeyView: View {
                         .foregroundStyle(.black)
                 )
             }.padding()
+            
+                //buttons
+            ForEach(buttons, id: \.self){
+                row in
+                HStack(spacing: 15){
+                    ForEach(row, id: \.self){
+                        element in
+                        Button(action: {print("\(element.rawValue) Tapped.")}, label: {
+                            Text(element.rawValue)
+                                .font(.system(size: 30))
+                                .frame(width: 80, height: 60)
+                                .background(element.buttonColor)
+                        })
+                    }
+                }
+            }
         }
     }
 }
